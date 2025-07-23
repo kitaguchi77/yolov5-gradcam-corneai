@@ -1,0 +1,69 @@
+# YOLOv5 GradCAM++ Configuration
+
+# Model settings
+model:
+  weights_path: "/Users/kitaguchi/Desktop/CorneAI_GradCAM論文/YOLO_GradCAM_Cut-and-Paste/Code/models/last.pt"  # Path to YOLOv5 model weights
+  device: "cpu"  # Use "cuda" for GPU, "cpu" for reproducibility
+  img_size: 640  # Input image size
+  conf_threshold: 0.25  # Confidence threshold for detection
+  iou_threshold: 0.45  # IoU threshold for NMS
+
+# GradCAM++ settings
+gradcam:
+  target_layers: [17, 20, 23, "24_m_0", "24_m_1", "24_m_2"]  # YOLOv5 layers to analyze
+  use_cuda: false  # Set to true for GPU acceleration
+  normalize_cam: true  # Normalize CAM values to [0, 1]
+  
+# Disease categories
+classes:
+  0: "Normal"
+  1: "Infectious keratitis"
+  2: "Non-infectious keratitis"
+  3: "Scar"
+  4: "Tumor"
+  5: "Deposit"
+  6: "APAC"
+  7: "Lens opacity"
+  8: "Bullous keratopathy"
+
+# Cut-and-paste validation settings
+cut_paste:
+  num_backgrounds: 341  # Number of background templates
+  min_confidence: 0.9  # Minimum confidence for background selection
+  cornea_annotation_format: "ellipse"  # Format for cornea annotations
+  output_composite_images: false  # Save composite images (memory intensive)
+
+# Analysis settings
+analysis:
+  aoi_threshold: 0.5  # Threshold for Area of Interest calculation
+  statistical_tests:
+    - "kruskal_wallis"
+    - "mann_whitney"
+    - "dunn"
+  bonferroni_correction: true
+  significance_level: 0.05
+
+# Output settings
+output:
+  results_dir: "results"
+  save_heatmaps: true
+  save_statistics: true
+  save_plots: true
+  image_format: "png"
+  dpi: 300
+
+# Data paths
+paths:
+  test_images: "path/to/test/images"
+  expert_annotations: "path/to/expert/annotations"
+  background_templates: "path/to/background/templates"
+  
+# Reproducibility
+reproducibility:
+  seed: 42
+  deterministic: true
+  
+# Logging
+logging:
+  level: "INFO"
+  log_file: "gradcam_analysis.log"
