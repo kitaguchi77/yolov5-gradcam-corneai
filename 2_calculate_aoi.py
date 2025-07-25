@@ -310,7 +310,7 @@ if __name__ == '__main__':
     parser.add_argument('--model-path', type=str, required=True, help='Path to the YOLOv5 model weights file (.pt).')
     parser.add_argument('--output-csv', type=str, required=True, help='Path to save the output CSV file with AOI results.')
     parser.add_argument('--save-maps', action='store_true', help='Flag to save the blended saliency maps.')
-    parser.add_argument('--maps-output-dir', type=str, default='saliency_maps', help='Directory to save the blended saliency maps.')
+    parser.add_argument('--maps-output-dir', type=str, default='output/saliency_maps', help='Directory to save the blended saliency maps.')
     
     args = parser.parse_args()
     

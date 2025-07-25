@@ -42,14 +42,6 @@
 
 分析は複数のステップに分かれています。`Code` ディレクトリ内から、以下の順序でスクリプトを実行してください。
 
-### ステップ0: サンプル画像の準備 (オプション)
-
-大規模なデータセットからサンプル画像を生成する必要がある場合は、`sample.py` を使用できます。このスクリプトは、指定されたCSVから各正解クラスごとに1枚の画像を抽出し、`data/sample_images` にコピーします。
-
-```bash
-python sample.py --seed 42 
-```
-
 ### ステップ1: 予測結果の生成
 
 このスクリプトは、指定されたディレクトリ内のすべての画像に対して推論を実行し、ファイル名から正解ラベルを抽出して、予測結果と信頼度をCSVファイルに保存します。
@@ -66,12 +58,7 @@ python 1_add_predictions.py \
 このスクリプトは、指定されたディレクトリ内のすべての画像ファイルを直接処理し、ネットワークの複数レイヤーに対してGrad-CAM++の注目領域(Area of Interest, AOI)を計算します。正解クラスは、ファイル名のプレフィックス（例: `[tumor]image.jpg`）から自動的に判定されます。AOIは、予測されたBBox（バウンディングボックス）の面積に対する、その内部にある注目領域（Saliency Mapでハイライトされた部分）の面積の割合 (`Intersection / BBox Area`) として計算され、モデルが対象物のどの程度に注目しているかをより直感的に評価できます。
 
 ```bash
-python 2_calculate_aoi.py \
-    --image-dir data/sample_images \
-    --model-path models/last.pt \
-    --output-csv analysis_results_with_aoi.csv \
-    --save-maps \
-    --maps-output-dir saliency_maps
+python 2_calculate_aoi.py     --image-dir data/sample_images     --model-path models/last.pt     --output-csv output/analysis_results_with_aoi.csv     --save-maps     --maps-output-dir output/saliency_maps
 ```
 
 ### ステップ3: Cut-and-Paste検証の実行
@@ -80,15 +67,10 @@ python 2_calculate_aoi.py \
 
 
 ```bash
-python 3_cut_and_paste.py \
-    --image-dir data/sample_images \
-    --annotations-xml data/annotations.xml \
-    --output-csv batch_cut_and_paste_results.csv \
-    --composite-output-dir data/composite_images \
-    --model-path models/last.pt
+python 3_cut_and_paste.py     --image-dir data/sample_images     --annotations-xml data/annotations.xml     --output-csv output/batch_cut_and_paste_results.csv     --composite-output-dir output/composite_images     --model-path models/last.pt
 ```
 
-これにより、合成画像は `composite_images_batch/` に保存され、各合成画像の予測結果を含むCSV (`batch_cut_and_paste_results.csv`) が出力されます。
+これにより、合成画像は `data/composite_images/` に保存され、各合成画像の予測結果を含むCSV (`batch_cut_and_paste_results.csv`) が出力されます。
 
 
 ### ステップ4: Pointing GameとIoUメトリクスの計算

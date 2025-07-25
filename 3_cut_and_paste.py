@@ -192,7 +192,7 @@ if __name__ == "__main__":
     parser.add_argument('--annotations-xml', type=str, required=True, help='楕円情報を含むXMLファイルへのパス')
     parser.add_argument('--output-csv', type=str, default='batch_cut_and_paste_results.csv', 
                         help='処理結果を保存するCSVファイルへのパス')
-    parser.add_argument('--composite-output-dir', type=str, default='composite_images_batch', 
+    parser.add_argument('--composite-output-dir', type=str, default='output/composite_images', 
                         help='合成画像を保存するディレクトリへのパス')
     parser.add_argument('--model-path', type=str, help='(オプション) 予測に使用するYOLOv5モデルの重みへのパス')
     args = parser.parse_args()

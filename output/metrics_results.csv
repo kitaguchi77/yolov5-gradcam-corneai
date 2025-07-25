@@ -1,10 +1,10 @@
 ﻿image_basename,ground_truth_class,predicted_class,confidence,pointing_game_accuracy,iou
-[scar]myt 0052.jpg,scar,scar,0.96,True,0.5905793972886625
-[infection]細菌_ktz0755_01.jpg,infection,infection,0.95,True,0.2532884864165589
-[deposit]帯状_kei0562_01.jpg,deposit,APAC,0.94,True,0.5348033261702326
-[immun]モーレン_jun0304_01.jpg,non-infection,non-infection,0.94,False,0.17538749372556775
-[cat]TDC_273_L_slit.jpg,lens opacity,bullous,0.9,True,0.2684018534950212
-[apac]ttr_0378.jpg,APAC,lens opacity,0.74,True,0.061374288989221155
-[bullous]toh0203_01.jpg,bullous,tumor,0.91,True,0.2953796859980775
-[tumor]デルモイド_ehm0314.jpg,tumor,deposit,0.9,False,0.11451582389665144
-[normal]ehm0004.jpg,normal,normal,0.97,True,0.5588697017268446
+[infection]0006.jpg,infection,infection,0.95,True,0.2532884864165589
+[bullous]0002.jpg,bullous,tumor,0.91,True,0.2953796859980775
+[immun]0005.jpg,non-infection,non-infection,0.94,False,0.17538749372556775
+[apac]0001.jpg,APAC,lens opacity,0.74,True,0.061374288989221155
+[tumor]0009.jpg,tumor,deposit,0.9,False,0.11451582389665144
+[normal]0007.jpg,normal,normal,0.97,True,0.5588697017268446
+[scar]0008.jpg,scar,scar,0.96,True,0.5905793972886625
+[cat]0003.jpg,lens opacity,bullous,0.9,True,0.2684018534950212
+[deposit]0004.jpg,deposit,APAC,0.94,True,0.5348033261702326

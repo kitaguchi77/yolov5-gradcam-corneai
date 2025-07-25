@@ -1,6 +1,3 @@
-# Files
-sample.py
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -126,5 +123,4 @@ yolov5/
 
 # Specific to this project
 models/last.pt
-demo_results/
-sample_images/
+sample.py

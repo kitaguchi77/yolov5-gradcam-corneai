@@ -57,12 +57,7 @@ python 1_add_predictions.py \
 This script processes all image files in a directory to calculate the Grad-CAM++ Area of Interest (AOI). The ground truth class is automatically determined from the filename prefix (e.g., `[tumor]image.jpg`). The AOI is calculated as the ratio of the highlighted saliency area within the predicted bounding box to the total area of the bounding box (`Intersection / BBox Area`). This provides a more intuitive measure of how much of the object of interest is being focused on by the model.
 
 ```bash
-python 2_calculate_aoi.py \
-    --image-dir data/sample_images \
-    --model-path models/last.pt \
-    --output-csv analysis_results_with_aoi.csv \
-    --save-maps \
-    --maps-output-dir saliency_maps
+python 2_calculate_aoi.py     --image-dir data/sample_images     --model-path models/last.pt     --output-csv analysis_results_with_aoi.csv     --save-maps     --maps-output-dir output/saliency_maps
 ```
 
 ### Step 3: Perform Cut-and-Paste Validation
@@ -71,12 +66,7 @@ This script generates image pairs and performs Cut-and-Paste validation in batch
 
 
 ```bash
-python 3_cut_and_paste.py \
-    --image-dir data/sample_images \
-    --annotations-xml data/annotations.xml \
-    --output-csv batch_cut_and_paste_results.csv \
-    --composite-output-dir data/composite_images \
-    --model-path models/last.pt
+python 3_cut_and_paste.py     --image-dir data/sample_images     --annotations-xml data/annotations.xml     --output-csv output/batch_cut_and_paste_results.csv     --composite-output-dir output/composite_images     --model-path models/last.pt
 ```
 
 This will save the composite images to `composite_images_batch/` and output a CSV (`batch_cut_and_paste_results.csv`) with prediction results for each composite image.
