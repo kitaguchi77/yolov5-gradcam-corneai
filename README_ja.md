@@ -105,7 +105,7 @@ python 4_calculate_metrics.py \
     --image-dir data/sample_images \
     --mask-dir data/sample_masks \
     --model-path models/last.pt \
-    --output-csv metrics_results.csv \
+    --output-csv output/metrics_results.csv \
     --layer-name model_23_cv3_conv
 ```
 

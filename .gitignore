@@ -97,7 +97,6 @@ Thumbs.db
 *.weights
 
 # Data
-data/
 results/
 runs/
 wandb/
