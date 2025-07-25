@@ -1,0 +1,10 @@
+image_basename,GroundTruth,Predict,Likelihood
+[scar]myt 0052.jpg,scar,scar,0.96
+[infection]細菌_ktz0755_01.jpg,infection,infection,0.95
+[deposit]帯状_kei0562_01.jpg,deposit,deposit,0.94
+[immun]モーレン_jun0304_01.jpg,non-infection,non-infection,0.94
+[cat]TDC_273_L_slit.jpg,lens opacity,lens opacity,0.9
+[apac]ttr_0378.jpg,APAC,APAC,0.74
+[bullous]toh0203_01.jpg,bullous,bullous,0.91
+[tumor]デルモイド_ehm0314.jpg,tumor,tumor,0.9
+[normal]ehm0004.jpg,normal,normal,0.97
